@@ -1,0 +1,107 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>CarRental</title>
+  </head>
+
+  <body>
+
+
+
+    <form>
+      <h1>Rent A Car</h1>
+      First name:<br> 
+      <input type="text" name="firstname"> Last name: <input type="text" name="lastname"> 
+
+      <select name="cars">
+        <option value="econ">Econ</option>
+        <option value="mid">Mid</option>
+      </select> 
+
+    </form> 
+
+    <button onclick="carData.rentCar()">Rent Car</button>
+
+    <h1>Renter Info</h1> 
+    <h2>First Name</h2>
+    <p id ="form.firstname"></p>
+    <h2>Last Name</h2>
+    <p id = "form.lastname"></p>
+    <h2>Type of Rental</h2>
+    <p id = "option.cars"></p>
+    <h1>Business Name</h1>
+    <p id="businessName"></p>
+
+
+    <h2>Economy Cars</h2>
+    <p id="economyCars"></p>
+
+    <h2>Economy Cars Available</h2>
+    <p id="economycarsAvailable"></p>
+    
+    <h2>Econ Price</h2>
+    <p id = "econPrice"></p>
+
+    <h2>Midsize Cars</h2>
+    <p id="midsizeCars"></p>
+
+    <h2>Midsize Cars Available</h2>
+    <p id="midsizecarsAvailable"></p>
+    
+    <h2>Midsize Price</h2>
+    <p id="midsizePrice"></p>
+
+
+
+    <button onclick="carData.click()">Update Availability</button>
+    <button onclick="carData.economyAvail()">Rent out 1 Economy Car</button>
+    <button onclick="carData.midsizeAvail()">Rent out 1 Midsize Car</button>
+
+    <script>
+      var carData = { 
+        businessName: "Enterprise Car Rentals",
+        economyCars: 'Economy',
+        economycarsAvailable: 83, 
+        midsizeCars: "Midsize",
+        midsizecarsAvailable: 175,
+        econPrice: 30,
+        midsizePrice: 40,
+
+        rentCar: function(){
+          document.getElementById("form.firstname").innerHTML = this.form.firstname;
+          document.getElementById("form.lastname").innerHTML = this.form.lastname;
+          document.getElementById("select.cars").innerHTML = this.select.cars;
+
+        },
+
+        click: function(){
+
+          document.getElementById("businessName").innerHTML = this.businessName;
+          document.getElementById("economyCars").innerHTML = this.economyCars;
+          document.getElementById("economycarsAvailable").innerHTML = this.economycarsAvailable;
+          document.getElementById("midsizeCars").innerHTML = this.midsizeCars;
+          document.getElementById("midsizecarsAvailable").innerHTML = this.midsizecarsAvailable;
+          document.getElementById("econPrice").innerHTML = this.econPrice;
+          document.getElementById("midsizePrice").innerHTML = this.midsizePrice;
+          
+          console.log("click");
+        },
+
+        economyAvail: function(){
+          this.economycarsAvailable--;
+          document.getElementById("economycarsAvailable").innerHTML = this.economycarsAvailable;
+        },
+
+        midsizeAvail: function(){
+          this.midsizecarsAvailable--;
+          document.getElementById("midsizecarsAvailable").innerHTML = this.midsizecarsAvailable;
+        },
+
+
+      }
+    </script> 
+
+  </body>
+
+
+</html>
